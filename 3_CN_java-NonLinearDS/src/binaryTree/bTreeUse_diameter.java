@@ -3,7 +3,7 @@ package binaryTree;
 import java.util.*;
 import java.util.Scanner;
 
-public class bTreeUse_IPOP_iteratively {
+public class bTreeUse_diameter {
 	
 	public static bTreeNode<Integer> inputLevelwise(){
 		Scanner sc=new Scanner(System.in);
@@ -38,23 +38,6 @@ public class bTreeUse_IPOP_iteratively {
 			return root;
 	}
 
-	public static void printRecursive(bTreeNode<Integer> root) {
-		if(root==null) { // Base case.
-			return;// We return nothing, to avoid null pointer, (discussed this before in Tree)
-		}
-		String toPrint=root.data+" "; // If above is true we store root in string.
-		
-		if(root.left!=null) {
-			toPrint+="L:"+root.left.data+" "; // If above is true we store left in string.
-		}
-		if(root.right!=null) {
-			toPrint+="R:"+root.right.data+" "; // If above is true we store right in string.
-		}
-		System.out.println(toPrint);
-		printRecursive(root.left); // Finally we will do this for all L and R until null on all sides is reached. 
-		printRecursive(root.right);
-	}
-		
 	public static void printLevelWise(bTreeNode<Integer> root) { // I will do it. Did it Boi :)
 		
 		Queue<bTreeNode<Integer>> pendingNodes=new LinkedList<>();
@@ -77,6 +60,49 @@ public class bTreeUse_IPOP_iteratively {
 		
 	}
 	
+	// Tree Diameter. but code is slow.
+	public static int treeDiameter(bTreeNode<Integer> root) {
+		if(root==null) {
+			return 0;
+		}
+		int option1=height(root.left)+height(root.right);
+		int option2=treeDiameter(root.left);
+		int option3=treeDiameter(root.right);
+		return Math.max(option1, Math.max(option2, option3));
+	}
+	public static int height(bTreeNode<Integer> root) {
+		if(root==null) {
+		return 0;
+		}
+		
+		int lh=height(root.left);
+		int rh=height(root.right);
+		return 1+Math.max(lh, rh);
+	}
+	
+	public static pair<Integer, Integer> heightDiameter(bTreeNode<Integer> root){ 
+		if(root==null) {
+			pair<Integer, Integer> output=new pair<>();
+			output.first=0;
+			output.second=0;
+			return output;
+		}
+		// This is only recursion part.
+		pair<Integer, Integer> lop=heightDiameter(root.left); // This will give us height & diameter of left. 
+		pair<Integer, Integer> rop=heightDiameter(root.right); // height and diameter of right.
+		
+		// This part is constant.
+		int height=1+Math.max(lop.first, rop.first);
+		int option1=lop.first+rop.first;
+		int option2=lop.second;
+		int option3=rop.second;
+		int diameter=Math.max(option1, Math.max(option2, option3));
+		pair<Integer, Integer> output=new pair<>();
+		output.first=height;
+		output.second=diameter;
+		return output;
+	}
+
 	
 	
 	public static void main(String[] args) {
@@ -84,5 +110,7 @@ public class bTreeUse_IPOP_iteratively {
 //		printRecursive(root);
 		System.out.println();
 		printLevelWise(root);
+//		System.out.println("Diameter Method 1 is: "+treeDiameter(root));
+		System.out.println("Diameter Method 2 is: "+heightDiameter(root).second);
 	}
 }

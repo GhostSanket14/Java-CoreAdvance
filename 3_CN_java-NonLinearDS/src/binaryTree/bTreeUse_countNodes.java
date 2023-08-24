@@ -3,7 +3,7 @@ package binaryTree;
 import java.util.*;
 import java.util.Scanner;
 
-public class bTreeUse_IPOP_iteratively {
+public class bTreeUse_countNodes {
 	
 	public static bTreeNode<Integer> inputLevelwise(){
 		Scanner sc=new Scanner(System.in);
@@ -38,23 +38,6 @@ public class bTreeUse_IPOP_iteratively {
 			return root;
 	}
 
-	public static void printRecursive(bTreeNode<Integer> root) {
-		if(root==null) { // Base case.
-			return;// We return nothing, to avoid null pointer, (discussed this before in Tree)
-		}
-		String toPrint=root.data+" "; // If above is true we store root in string.
-		
-		if(root.left!=null) {
-			toPrint+="L:"+root.left.data+" "; // If above is true we store left in string.
-		}
-		if(root.right!=null) {
-			toPrint+="R:"+root.right.data+" "; // If above is true we store right in string.
-		}
-		System.out.println(toPrint);
-		printRecursive(root.left); // Finally we will do this for all L and R until null on all sides is reached. 
-		printRecursive(root.right);
-	}
-		
 	public static void printLevelWise(bTreeNode<Integer> root) { // I will do it. Did it Boi :)
 		
 		Queue<bTreeNode<Integer>> pendingNodes=new LinkedList<>();
@@ -78,11 +61,22 @@ public class bTreeUse_IPOP_iteratively {
 	}
 	
 	
+	public static int countNodes(bTreeNode<Integer> root) {
+		int count=1;
+		if(root==null) {
+			return 0;
+		}
+		count+=countNodes(root.left);
+		count+=countNodes(root.right);
+		return count;
+	}
+	
 	
 	public static void main(String[] args) {
 		bTreeNode<Integer> root=inputLevelwise();
 //		printRecursive(root);
 		System.out.println();
 		printLevelWise(root);
+		System.out.println("child are: "+countNodes(root));
 	}
 }

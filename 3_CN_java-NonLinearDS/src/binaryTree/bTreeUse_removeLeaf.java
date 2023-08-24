@@ -3,7 +3,7 @@ package binaryTree;
 import java.util.*;
 import java.util.Scanner;
 
-public class bTreeUse_IPOP_iteratively {
+public class bTreeUse_removeLeaf {
 	
 	public static bTreeNode<Integer> inputLevelwise(){
 		Scanner sc=new Scanner(System.in);
@@ -38,23 +38,6 @@ public class bTreeUse_IPOP_iteratively {
 			return root;
 	}
 
-	public static void printRecursive(bTreeNode<Integer> root) {
-		if(root==null) { // Base case.
-			return;// We return nothing, to avoid null pointer, (discussed this before in Tree)
-		}
-		String toPrint=root.data+" "; // If above is true we store root in string.
-		
-		if(root.left!=null) {
-			toPrint+="L:"+root.left.data+" "; // If above is true we store left in string.
-		}
-		if(root.right!=null) {
-			toPrint+="R:"+root.right.data+" "; // If above is true we store right in string.
-		}
-		System.out.println(toPrint);
-		printRecursive(root.left); // Finally we will do this for all L and R until null on all sides is reached. 
-		printRecursive(root.right);
-	}
-		
 	public static void printLevelWise(bTreeNode<Integer> root) { // I will do it. Did it Boi :)
 		
 		Queue<bTreeNode<Integer>> pendingNodes=new LinkedList<>();
@@ -77,12 +60,27 @@ public class bTreeUse_IPOP_iteratively {
 		
 	}
 	
-	
+	public static bTreeNode<Integer> removeLeaf(bTreeNode<Integer> root){
+		if(root==null) {
+			return null;
+		}
+		if(root.left==null && root.right==null) { // This will detect leaf node. And will return null.
+			return null; // null returned here will be updated to root. Thus removing the leaf.
+		}
+		
+		root.left=removeLeaf(root.left); // This will update our node above the leaf nodes.
+		root.right=removeLeaf(root.right);
+		
+		return root;
+	}
 	
 	public static void main(String[] args) {
 		bTreeNode<Integer> root=inputLevelwise();
-//		printRecursive(root);
-		System.out.println();
 		printLevelWise(root);
+		
+		System.out.println("------------");
+		
+		bTreeNode<Integer> rootNew=removeLeaf(root);
+		printLevelWise(rootNew);
 	}
 }

@@ -9,7 +9,7 @@ public class bTreeUse {
 		
 		root.left=node1; // We attached 1 node to left side of our root.
 		root.right=node2;// We attached 1 node to right side of our root.
-		System.out.println("Debug till this line is DONE");
+		System.out.println("Debug till this line");
 	}
 }
 //           1			
