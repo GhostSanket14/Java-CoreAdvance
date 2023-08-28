@@ -3,8 +3,7 @@ import java.util.Scanner;
 
 public class LinkList04InputNode {
 	Scanner sc=new Scanner(System.in);
-
-
+	
 	public Node input() {
 		Node<Integer> head=null, tail=null; // Created empty head & tail node.
 		int data=sc.nextInt();
@@ -21,7 +20,7 @@ public class LinkList04InputNode {
 				}			// This concept of tail will save us lot of travel time. As we will always have something to point end.
 				data=sc.nextInt();
 			}	
-		return head;	
+		return head;
 		}
 
 	public void print(Node<Integer> temp) {
@@ -34,7 +33,7 @@ public class LinkList04InputNode {
 	public static void main(String[] args) {
 		LinkList04InputNode obj=new LinkList04InputNode();
 		Node<Integer> pass=obj.input();
-		obj.print(pass);		
-	}
+		obj.print(pass);	
 	
+	}
 }

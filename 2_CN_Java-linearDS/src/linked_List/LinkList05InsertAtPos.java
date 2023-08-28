@@ -31,7 +31,8 @@ Scanner sc=new Scanner(System.in);
 			return newNode; // remember to update head in main.
 		}
 		Node<Integer> temp=head;
-		while(i<pos-1) { // We have to stop at previous node. This condition will stop when i will become equal to pos-1
+		i=1; // I did this to make 1 based indexing.
+		while(i<pos-1) { // We have to stop at previous node. This condition will stop when i is at pos-1 (we are starting from 0)
 			temp=temp.next; // Now we use this temp below.			
 			i++;
 		}
