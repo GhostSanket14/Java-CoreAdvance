@@ -1,0 +1,63 @@
+Data Structures:
+Trees (AVL Trees, min-max heap.)
+Graphs (Graph Traversal Algorithms: BFS, DFS)
+
+Dynamic Programming:
+Fibonacci Series
+Knapsack Problem
+Longest Common Subsequence
+Dynamic Programming for Matrix Chain Multiplication
+
+Greedy Algorithms:
+Huffman Coding
+Kruskal's Algorithm (Minimum Spanning Tree)
+Dijkstra's Algorithm (Shortest Path)
+
+Divide and Conquer Algorithms:
+Merge Sort (already mentioned)
+Quick Sort (already mentioned)
+Strassen's Matrix Multiplication
+
+Graph Algorithms:
+Depth-First Search (DFS)
+Breadth-First Search (BFS)
+Topological Sort
+Strongly Connected Components (Kosaraju's Algorithm, Tarjan's Algorithm)
+
+String Algorithms:
+Pattern Matching (e.g., KMP, Boyer-Moore)
+Edit Distance (Levenshtein Distance)
+Longest Common Substring
+
+Number Theory Algorithms:
+Sieve of Eratosthenes (for prime numbers)
+Euclidean Algorithm (for greatest common divisor)
+Modular Arithmetic
+
+Geometric Algorithms:
+Convex Hull (e.g., Graham's Scan, Jarvis March)
+Line Intersection (Sweep Line Algorithm)
+
+Bit Manipulation:
+Bitwise Operators
+Bitwise Manipulation Techniques (e.g., finding parity)
+
+Searching and Sorting in Various Data Structures:
+Binary search in trees (e.g., Binary Search Tree)
+Hash table operations (insertion, deletion, search)
+
+Advanced Data Structures (optional):
+Trie
+Fenwick Tree (Binary Indexed Tree)
+Segment Tree
+
+Algorithmic Paradigms:
+Divide and Conquer
+Greedy
+Dynamic Programming
+Backtracking
+
+Complexity Analysis:
+Understanding time and space complexity of algorithms
+
+Start with the basics and gradually progress to more advanced algorithms as you become comfortable with the fundamentals.
